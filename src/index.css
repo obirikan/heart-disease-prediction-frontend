@@ -1,6 +1,7 @@
 *{
   margin: 0px;
   padding: 0px;
+  border: 1px solid black;
 }
 .navparent{
    /* border: 1px solid black; */
@@ -24,23 +25,31 @@
     color: white;
 }
 .contentcomponent{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   margin-top: 5px;
   overflow-x: hidden;
+  background-color: rgb(235, 238, 238);
 }
 .ctnheader{
     display: flex;
-    padding: 5px;
     width: inherit;
 }
+/* .ctnheader *{
+    border: 1px solid black;
+} */
 .psimg{
     width: 99.53vw;
 }
 .child1{
     margin: 10px;
 }
+.child2{
+    margin-top: 10px;
+    height: 40px;
+    padding: 7px;
+}
 .text{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
 }
 .text p{
@@ -52,4 +61,16 @@
 }
 .ctnbtn p{
     margin: 10px;
+}
+.ps1{
+    height: 60px;
+    width: 60px;
+    object-fit:contain;
+    border-radius: 50%;
+}
+.ta{
+    margin-top: 6px;
+}
+span{
+    color: red;
 }
