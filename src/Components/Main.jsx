@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useContext} from 'react'
-import { Input,Stack,Button } from '@chakra-ui/react'
+import { Input,Stack,Button, Select  } from '@chakra-ui/react'
 import Doc from '../assets/doc2.png'
 import { Values } from '../Context/Context'
 import axios from 'axios'
@@ -24,13 +24,13 @@ const Main = ({Children}) => {
         </div>
         <div className='form'>
            <div className='heading'>
-             <h1 className='htxt'>Welcome To Heart Disease Predictor</h1><br /> 
+             <h1 className='htxt'>Heart Disease Prediction</h1>
              <p className='htxt-2'>fill in the forms to know if  you have a heart disease</p>
            </div>
            <div className='labels'>
             <Stack spacing={3}>
                 <div>
-                  <p>name</p>
+                  <p>Name</p>
                   <Input 
                    className='btn'
                    placeholder='small size' 
@@ -40,7 +40,42 @@ const Main = ({Children}) => {
                    />
                 </div>
                 <div>
-                  <p>name</p>
+                  <p>Age</p>
+                  <Input 
+                   className='btn'
+                   placeholder='small size' 
+                   size='sm' 
+                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
+                   width='auto btn'
+                   type='number'
+                   />
+                </div>
+                <div>
+                  <p>Sex</p>
+                  <Select
+                    className='btn'
+                    size='sm' 
+                    width={300}
+                   >
+                    <option value={1}>Male</option>
+                    <option value={0}>female</option>
+                  </Select>
+                </div>
+                <div>
+                  <p>Chest Pain Type</p>
+                  <Select
+                    className='btn'
+                    size='sm' 
+                    width={300}
+                   >
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                    <option value={3}>3</option>
+                    <option value={4}>4</option>
+                  </Select>
+                </div>
+                <div>
+                  <p>Blood Pressure</p>
                   <Input 
                    className='btn'
                    placeholder='small size' 
@@ -50,7 +85,7 @@ const Main = ({Children}) => {
                    />
                 </div>
                 <div>
-                  <p>name</p>
+                  <p>Cholestrol</p>
                   <Input 
                    className='btn'
                    placeholder='small size' 
@@ -60,67 +95,30 @@ const Main = ({Children}) => {
                    />
                 </div>
                 <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
+                  <p>FBS over 120</p>
+                  <Select
+                    className='btn'
+                    size='sm' 
+                    width={300}
+                   >
+                    <option value={0}>0</option>
+                    <option value={1}>1</option>
+                  </Select>
                 </div>
                 <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
+                  <p>EKG result</p>
+                  <Select
+                    className='btn'
+                    size='sm' 
+                    width={300}
+                   >
+                    <option value={0}>0</option>
+                    <option value={1}>1</option>
+                    <option value={2}>2</option>
+                  </Select>
                 </div>
                 <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
-                </div>
-                <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
-                </div>
-                <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
-                </div>
-                <div>
-                  <p>name</p>
-                  <Input 
-                   className='btn'
-                   placeholder='small size' 
-                   size='sm' 
-                   htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
-                   width='auto btn' 
-                   />
-                </div>
-                <div>
-                  <p>name</p>
+                  <p>Max HR</p>
                   <Input 
                    className='btn'
                    placeholder='small size' 
