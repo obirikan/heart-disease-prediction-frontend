@@ -1,13 +1,12 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { Input,Stack,Button } from '@chakra-ui/react'
 import Doc from '../assets/doc2.png'
+import { Values } from '../Context/Context'
 import axios from 'axios'
 const Main = ({Children}) => {
   const [age,setage]=useState()
   const[data,setdata]=useState()
-  useEffect(()=>{
 
-  },[])
 
   const perf= async()=>{
     await axios.post('http://127.0.0.1:5000/get',{'name':[age,1,2,2,8,1,8,8,1300]}).then((res)=>{
