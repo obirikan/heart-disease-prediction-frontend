@@ -1,76 +1,79 @@
 *{
   margin: 0px;
   padding: 0px;
-  border: 1px solid black;
 }
-.navparent{
+
+.layout{
    /* border: 1px solid black; */
-   display: flex;
-   justify-content: space-between;
-   padding: 10px;
-   position: sticky;
-   top: 0px;
-   background-color: crimson;
-   color: white;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
 }
-.feedcomponent {
-    margin-top: 100px;
-    position: fixed;
-    top: 80vh;
-    width: 100%;
-    padding: 10px;
+.layout {
+    /* border: 1px solid black; */
+}
+.form{
+   padding: 30px;
+}
+.htxt{
+    /* border: 1px solid black; */
+    font-size: 40px;
+}
+.labels{
+    margin-top: 20px;
+}
+.htxt-2{
+    /* border: 1px solid black; */
+    color: darkgrey;
+    
+}
+.image{
+    background-color:#00b4d8;
     display: flex;
-    justify-content: space-evenly;
-    background-color: crimson;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.txt{
+    font-size: 50px;
     color: white;
 }
-.contentcomponent{
-  /* border: 1px solid black; */
-  margin-top: 5px;
-  overflow-x: hidden;
-  background-color: rgb(235, 238, 238);
-}
-.ctnheader{
+.anim{
     display: flex;
-    width: inherit;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
-/* .ctnheader *{
-    border: 1px solid black;
-} */
-.psimg{
-    width: 99.53vw;
+.btn{
+    width: 630px;
 }
-.child1{
-    margin: 10px;
-}
-.child2{
-    margin-top: 10px;
-    height: 40px;
-    padding: 7px;
-}
-.text{
-    /* border: 1px solid black; */
-    padding: 5px;
-}
-.text p{
-    margin-left: 10px;
-}
-.ctnbtn{
-    display: flex;
-    justify-content: space-between;
-}
-.ctnbtn p{
-    margin: 10px;
-}
-.ps1{
-    height: 60px;
-    width: 60px;
-    object-fit:contain;
-    border-radius: 50%;
-}
-.ta{
-    margin-top: 6px;
-}
-span{
-    color: red;
-}
+
+
+
+@media only screen  and (max-width: 600px) {
+    .btn{
+        width: 260px;
+    }
+    .txt{
+        display: none;
+    }
+    .htxt{
+        font-size: 20px;
+        display: unset;
+        
+    }
+    .htxt-2{
+        /* border: 1px solid black; */
+        color: darkgrey;
+        display: unset;
+    }
+    
+    .layout{
+        /* border: 1px solid black; */
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .icon{
+        width: 300px;
+    }
+
+  }
