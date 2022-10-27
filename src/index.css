@@ -44,20 +44,19 @@
     flex-direction: column;
 }
 .btn{
-    width: 630px;
+    width: 300px;
 }
-
 
 
 @media only screen  and (max-width: 600px) {
     .btn{
-        width: 260px;
+        width: 300px;
     }
     .txt{
         display: none;
     }
     .htxt{
-        font-size: 20px;
+        font-size: 30px;
         display: unset;
         
     }
@@ -65,6 +64,10 @@
         /* border: 1px solid black; */
         color: darkgrey;
         display: unset;
+    }
+    .heading{
+        display: flex;
+        flex-direction: column;
     }
     
     .layout{
