@@ -3,19 +3,20 @@ import { Input,Stack,Button, Select  } from '@chakra-ui/react'
 import Doc from '../assets/doc2.png'
 import { Values } from '../Context/Context'
 import axios from 'axios'
-const Main = ({Children}) => {
-  const [age,setage]=useState()
-  const[data,setdata]=useState()
+
+const Main = () => {
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
+// const [name,setname]=useState()
 
 
-  const perf= async()=>{
-    await axios.post('http://127.0.0.1:5000/get',{'name':[age,1,2,2,8,1,8,8,1300]}).then((res)=>{
-      console.log(res.data)
-      setdata(res.data)
-     }).catch((err)=>{
-      console.log(err)
-     })
-  }
+
   return (
     <div className='layout'>
         <div className='image'>
@@ -33,7 +34,7 @@ const Main = ({Children}) => {
                   <p>Name</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='kelvin' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
@@ -43,7 +44,7 @@ const Main = ({Children}) => {
                   <p>Age</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='20' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn'
@@ -78,20 +79,22 @@ const Main = ({Children}) => {
                   <p>Blood Pressure</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   type='number'
                    />
                 </div>
                 <div>
                   <p>Cholestrol</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   type='number'
                    />
                 </div>
                 <div>
@@ -121,10 +124,11 @@ const Main = ({Children}) => {
                   <p>Max HR</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   type='number'
                    />
                 </div>
                 <Button colorScheme='teal' width={100} size='sm' mb={123}>
@@ -138,3 +142,12 @@ const Main = ({Children}) => {
 }
 
 export default Main
+
+// const perf= async()=>{
+//   await axios.post('http://127.0.0.1:5000/get',{'name':[age,1,2,2,8,1,8,8,1300]}).then((res)=>{
+//     console.log(res.data)
+//     setdata(res.data)
+//    }).catch((err)=>{
+//     console.log(err)
+//    })
+// }

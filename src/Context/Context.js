@@ -5,7 +5,9 @@ export const Values=createContext()
 const Context=({children})=>{
   const[cart,setCart]=useState([])
     return(
-        <Values.Provider value={{cart,setCart}}> 
+        <Values.Provider value={{
+          cart,setCart
+          }}> 
           {children}
         </Values.Provider>
     )
