@@ -3,9 +3,15 @@ import { createContext, useState } from "react";
 export const Values=createContext()
 
 const Context=({children})=>{
-  const[cart,setCart]=useState([])
+const [name,setname]=useState()
+const [result,setresult]=useState()
     return(
-        <Values.Provider value={{cart,setCart}}> 
+        <Values.Provider value={{
+          name,
+          setname,
+          result,
+          setresult
+          }}> 
           {children}
         </Values.Provider>
     )

@@ -3,19 +3,29 @@ import { Input,Stack,Button, Select  } from '@chakra-ui/react'
 import Doc from '../assets/doc2.png'
 import { Values } from '../Context/Context'
 import axios from 'axios'
-const Main = ({Children}) => {
-  const [age,setage]=useState()
-  const[data,setdata]=useState()
+
+const Main = () => {
+const [name,setname]=useState('')
+const [age,setage]=useState('')
+const [sex,setsex]=useState(0)
+const [bp,setbp]=useState('')
+const [cpt,setcpt]=useState(1)
+const [cho,setcho]=useState('')
+const [fbs,setfbs]=useState(0)
+const [ekg,setekg]=useState(0)
+const [max,setmax]=useState('')
 
 
-  const perf= async()=>{
-    await axios.post('http://127.0.0.1:5000/get',{'name':[age,1,2,2,8,1,8,8,1300]}).then((res)=>{
-      console.log(res.data)
-      setdata(res.data)
-     }).catch((err)=>{
-      console.log(err)
-     })
+const send=()=>{
+  if(name===''||age===''||bp===''||cho===''||max===''){
+    alert('all fileds required')
   }
+  else{
+    console.log(`name:${name},sex:${sex},age:${age},blood:${bp},cpt:${cpt},cholest:${cho},fbs:${fbs},ekg:${ekg},max:${max}`)
+  }
+
+}
+
   return (
     <div className='layout'>
         <div className='image'>
@@ -33,19 +43,21 @@ const Main = ({Children}) => {
                   <p>Name</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='kelvin' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   onChange={(e)=>setname(e.target.value)}
                    />
                 </div>
                 <div>
                   <p>Age</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='20' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
+                   onChange={(e)=>setage(e.target.value)}
                    width='auto btn'
                    type='number'
                    />
@@ -56,6 +68,8 @@ const Main = ({Children}) => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setsex(e.target.value)}
+                    value={0}
                    >
                     <option value={1}>Male</option>
                     <option value={0}>female</option>
@@ -67,6 +81,8 @@ const Main = ({Children}) => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setcpt(e.target.value)}
+                    value={1}
                    >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
@@ -78,20 +94,24 @@ const Main = ({Children}) => {
                   <p>Blood Pressure</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   onChange={(e)=>setbp(e.target.value)}
+                   type='number'
                    />
                 </div>
                 <div>
                   <p>Cholestrol</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   type='number'
+                   onChange={(e)=>setcho(e.target.value)}
                    />
                 </div>
                 <div>
@@ -100,6 +120,8 @@ const Main = ({Children}) => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setfbs(e.target.value)}
+                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -111,6 +133,8 @@ const Main = ({Children}) => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setekg(e.target.value)}
+                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -121,13 +145,20 @@ const Main = ({Children}) => {
                   <p>Max HR</p>
                   <Input 
                    className='btn'
-                   placeholder='small size' 
+                   placeholder='eg.100' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   type='number'
+                   onChange={(e)=>setmax(e.target.value)}
                    />
                 </div>
-                <Button colorScheme='teal' width={100} size='sm' mb={123}>
+                <Button 
+                 colorScheme='teal'
+                 width={100} size='sm'
+                  mb={123}
+                  onClick={send}
+                  >
                    submit
                 </Button>
              </Stack>
@@ -138,3 +169,12 @@ const Main = ({Children}) => {
 }
 
 export default Main
+
+// const perf= async()=>{
+//   await axios.post('http://127.0.0.1:5000/get',{'name':[age,1,2,2,8,1,8,8,1300]}).then((res)=>{
+//     console.log(res.data)
+//     setdata(res.data)
+//    }).catch((err)=>{
+//     console.log(err)
+//    })
+// }
