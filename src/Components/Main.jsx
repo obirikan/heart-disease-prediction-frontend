@@ -5,17 +5,26 @@ import { Values } from '../Context/Context'
 import axios from 'axios'
 
 const Main = () => {
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
-// const [name,setname]=useState()
+const [name,setname]=useState('')
+const [age,setage]=useState('')
+const [sex,setsex]=useState(0)
+const [bp,setbp]=useState('')
+const [cpt,setcpt]=useState(1)
+const [cho,setcho]=useState('')
+const [fbs,setfbs]=useState(0)
+const [ekg,setekg]=useState(0)
+const [max,setmax]=useState('')
 
 
+const send=()=>{
+  if(name===''||age===''||bp===''||cho===''||max===''){
+    alert('all fileds required')
+  }
+  else{
+    console.log(`name:${name},sex:${sex},age:${age},blood:${bp},cpt:${cpt},cholest:${cho},fbs:${fbs},ekg:${ekg},max:${max}`)
+  }
+
+}
 
   return (
     <div className='layout'>
@@ -38,6 +47,7 @@ const Main = () => {
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   onChange={(e)=>setname(e.target.value)}
                    />
                 </div>
                 <div>
@@ -47,6 +57,7 @@ const Main = () => {
                    placeholder='20' 
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
+                   onChange={(e)=>setage(e.target.value)}
                    width='auto btn'
                    type='number'
                    />
@@ -57,6 +68,8 @@ const Main = () => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setsex(e.target.value)}
+                    value={0}
                    >
                     <option value={1}>Male</option>
                     <option value={0}>female</option>
@@ -68,6 +81,8 @@ const Main = () => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setcpt(e.target.value)}
+                    value={1}
                    >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
@@ -83,6 +98,7 @@ const Main = () => {
                    size='sm' 
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
+                   onChange={(e)=>setbp(e.target.value)}
                    type='number'
                    />
                 </div>
@@ -95,6 +111,7 @@ const Main = () => {
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
                    type='number'
+                   onChange={(e)=>setcho(e.target.value)}
                    />
                 </div>
                 <div>
@@ -103,6 +120,8 @@ const Main = () => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setfbs(e.target.value)}
+                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -114,6 +133,8 @@ const Main = () => {
                     className='btn'
                     size='sm' 
                     width={300}
+                    onChange={(e)=>setekg(e.target.value)}
+                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -129,9 +150,15 @@ const Main = () => {
                    htmlSize={{ base: '90px', md: '90px', lg: '90px' }} 
                    width='auto btn' 
                    type='number'
+                   onChange={(e)=>setmax(e.target.value)}
                    />
                 </div>
-                <Button colorScheme='teal' width={100} size='sm' mb={123}>
+                <Button 
+                 colorScheme='teal'
+                 width={100} size='sm'
+                  mb={123}
+                  onClick={send}
+                  >
                    submit
                 </Button>
              </Stack>
