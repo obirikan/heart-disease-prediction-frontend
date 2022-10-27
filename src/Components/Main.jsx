@@ -5,7 +5,7 @@ import { Values } from '../Context/Context'
 import axios from 'axios'
 
 const Main = () => {
-const [name,setname]=useState('')
+const{name,setname}=useContext(Values)
 const [age,setage]=useState('')
 const [sex,setsex]=useState(0)
 const [bp,setbp]=useState('')
@@ -69,7 +69,6 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setsex(e.target.value)}
-                    value={0}
                    >
                     <option value={1}>Male</option>
                     <option value={0}>female</option>
@@ -82,7 +81,7 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setcpt(e.target.value)}
-                    value={1}
+                    // value={1}
                    >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
@@ -121,7 +120,7 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setfbs(e.target.value)}
-                    value={0}
+                   defaultValue={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -134,7 +133,6 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setekg(e.target.value)}
-                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
