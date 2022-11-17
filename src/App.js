@@ -9,6 +9,7 @@ function App() {
       <Routes>
          <Route path='/main' element={<Main/>}/>
          <Route path='/' element={<Content/>}/>
+         <Route path='/feed' element={<Feed/>}/>
       </Routes>
     </BrowserRouter>
     </div>
