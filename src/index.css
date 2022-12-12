@@ -2,6 +2,37 @@
   margin: 0px;
   padding: 0px;
 }
+/* chatgtp section */
+.f{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bb{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    margin: 20px;
+}
+
+img{
+    width: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .layout{
    /* border: 1px solid black; */
