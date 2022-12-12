@@ -3,9 +3,10 @@ import { Input,Stack,Button, Select  } from '@chakra-ui/react'
 import Doc from '../assets/doc2.png'
 import { Values } from '../Context/Context'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
-const [name,setname]=useState('')
+const{name,setname,setresult}=useContext(Values)
 const [age,setage]=useState('')
 const [sex,setsex]=useState(0)
 const [bp,setbp]=useState('')
@@ -14,16 +15,27 @@ const [cho,setcho]=useState('')
 const [fbs,setfbs]=useState(0)
 const [ekg,setekg]=useState(0)
 const [max,setmax]=useState('')
+const [loading,setloading]=useState(false)
+
+const navigate=useNavigate()
 
 
-const send=()=>{
+const send=async()=>{
   if(name===''||age===''||bp===''||cho===''||max===''){
     alert('all fileds required')
   }
   else{
-    console.log(`name:${name},sex:${sex},age:${age},blood:${bp},cpt:${cpt},cholest:${cho},fbs:${fbs},ekg:${ekg},max:${max}`)
+  await axios.post('http://127.0.0.1:5000/get',{'name':[age,sex,cpt,bp,cho,fbs,ekg,max]}).then((res)=>{
+    setresult(res.data)
+    setloading(false)
+    console.log(res.data)
+    navigate('/feed')
+   }).catch((err)=>{
+    console.log(err)
+   })
+    
   }
-
+  setloading(true)
 }
 
   return (
@@ -69,7 +81,6 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setsex(e.target.value)}
-                    value={0}
                    >
                     <option value={1}>Male</option>
                     <option value={0}>female</option>
@@ -82,7 +93,7 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setcpt(e.target.value)}
-                    value={1}
+                    // value={1}
                    >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
@@ -121,7 +132,7 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setfbs(e.target.value)}
-                    value={0}
+                   defaultValue={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -134,7 +145,6 @@ const send=()=>{
                     size='sm' 
                     width={300}
                     onChange={(e)=>setekg(e.target.value)}
-                    value={0}
                    >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -159,7 +169,7 @@ const send=()=>{
                   mb={123}
                   onClick={send}
                   >
-                   submit
+                   {loading?'loading':'submit'}
                 </Button>
              </Stack>
            </div>
